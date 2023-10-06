@@ -1,0 +1,8 @@
+@import "./main/reset.scss";
+@font-face {
+    font-family: 'pokemon';
+    src: url(./style/base/misfont/Pokemon\ Classic.ttf);
+}
+@import "./style/blocks/containers.scss";
+@import "./style/blocks/sections.scss";
+@import "./style/base/texts";
