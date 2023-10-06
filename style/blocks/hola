@@ -1,0 +1,40 @@
+ //   main$$.innerHTML = "";
+  // main$$.innerHTML = `<div class="main__div flip-card" id="card">
+  //                 <div class="main__div flip-card-inner">
+  //                 <h2> ${pokemonRecogido.Nombre}</h2>
+  //                      <figure class="flip-card-front">
+  //                           <img src=${pokemonRecogido.fotos}>
+  //                       </figure>
+  //                       <p>Tipo: ${pokemonRecogido.Tipos}</p>
+                    
+  //                 <div class="main__div flip-card-back">
+  //                 <h2> ${pokemonRecogido.Nombre}</h2>
+  //                 <figure">
+  //                      <img src=${pokemonRecogido.fotos}>
+  //                  </figure>
+  //                  <p>Tipo: ${pokemonRecogido.Tipos}</p>
+                  
+  //                 </div>
+  //                   </div>
+  //                 </div>`;
+  // const miDiv$$ = document.createElement("div");
+  // miDiv$$.className = "main__div";
+  // main$$.appendChild(miDiv$$);
+  // let mih2$$ = document.createElement("h2");
+  // mih2$$.textContent = `${pokemonRecogido[0].name}`;
+  // miDiv$$.appendChild(mih2$$);
+  // let miFigure$$ = document.createElement("figure");
+  // let miImg$$ = document.createElement("img");
+  // miImg$$.setAttribute("src", pokemonRecogido[0].sprites.front_default);
+  // let mip$$ = document.createElement("p");
+  // mip$$.textContent = `Tipo: ${pokemonRecogido[0].types[0].type.name}`;
+  // let mip2$$ = document.createElement("p");
+  // if (pokemonRecogido[0].abilities[1].ability) {
+  //   mip2$$.textContent = `Habilidad: ${pokemonRecogido[0].abilities[0].ability.name}, ${pokemonRecogido[0].abilities[1].ability.name} `;
+  // } else {
+  //   mip2$$.textContent = `Habilidad: ${pokemonRecogido[0].abilities[1].ability.name}`;
+  // }
+  // miFigure$$.appendChild(miImg$$);
+  // miDiv$$.appendChild(miFigure$$);
+  // miDiv$$.appendChild(mip$$);
+  // miDiv$$.appendChild(mip2$$);

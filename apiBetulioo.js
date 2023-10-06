@@ -11,7 +11,7 @@ const main$$ = document.querySelector("main");
 // return results
 // }
 const getPokemons = async () => {
-let pokemap = [];
+  let pokemap = [];
 
   for (let i = 1; i < 151; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
@@ -29,22 +29,38 @@ let pokemap = [];
   //  console.log(response)
   // console.log(results);
 };
+const getOnePokemon = async (i) => {
+  
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+  const results = await response.json();
+
+  
+
+  return results;
+};
 const mappeaPokemon = (pokemonNoMap) => {
   return pokemonNoMap.map((character) => ({
     Nombre: character.name,
     Tipos: character.types[0].type.name,
-    fotos: character.sprites.front_default,
-    Habilidad: character.abilities,
+    fotos: character.sprites.versions["generation-v"]["black-white"].animated.front_default,
+    Habilidad: character.abilities[0],
+    Habilidad2: character.abilities[1],
   }));
 };
+
 const pintaPokemon = (caracteresWiMap) => {
   // console.log(caracteresWiMap)
-  main$$.innerHTML=""
+  main$$.innerHTML = "";
   for (const characterMapeado of caracteresWiMap) {
     // console.log(characterMapeado.Nombre)
     const miDiv$$ = document.createElement("div");
-    miDiv$$.className = "main__div";
+    miDiv$$.className = "main__div flip-card";
+    miDiv$$.id = "card";
     main$$.appendChild(miDiv$$);
+
+    const miDiv2$$ = document.createElement("div");
+    miDiv2$$.className = "main__div flip-card-inner";
+    miDiv$$.appendChild(miDiv2$$);
 
     let mih2$$ = document.createElement("h2");
     mih2$$.textContent = `${characterMapeado.Nombre}`;
@@ -52,54 +68,211 @@ const pintaPokemon = (caracteresWiMap) => {
 
     let miFigure$$ = document.createElement("figure");
     let miImg$$ = document.createElement("img");
+    miFigure$$.className = "flip-card-front";
     miImg$$.setAttribute("src", characterMapeado.fotos);
 
-    
     let mip$$ = document.createElement("p");
     mip$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
     // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
     // console.log(habilidades2)
+    /////////////////////////////////////////////////////////
     let mip2$$ = document.createElement("p");
-    if (characterMapeado.Habilidad[1]){
-      mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad[0].name}, ${characterMapeado.Habilidad[1].name} `
-    }else{
-    mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad[0].name}`};
-    miFigure$$.appendChild(miImg$$);
-    miDiv$$.appendChild(miFigure$$);
-    miDiv$$.appendChild(mip$$);
-    miDiv$$.appendChild(mip2$$);
+    if (characterMapeado.Habilidad2) {
+      mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
+    } else {
+      mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
+    }
+    const miDiv3$$ = document.createElement("div");
+    miDiv3$$.className = "main__div flip-card-back";
 
+    let mih22$$ = document.createElement("h2");
+    mih22$$.textContent = `${characterMapeado.Nombre}`;
+    miDiv3$$.appendChild(mih2$$);
+
+    let miFigure2$$ = document.createElement("figure");
+    let miImg2$$ = document.createElement("img");
+    miFigure2$$.className = "";
+    miImg2$$.setAttribute("src", characterMapeado.fotos);
+
+    let mip4$$ = document.createElement("p");
+    mip4$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
+    // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
+    // console.log(habilidades2)
+    let laP$$ = document.createElement("p");
+    if (characterMapeado.Habilidad2) {
+      laP$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
+    } else {
+      laP$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
+    }
+
+    miFigure$$.appendChild(miImg$$);
+    miDiv2$$.appendChild(miFigure$$);
+    miFigure$$.appendChild(mip$$);
+    miFigure$$.appendChild(mip2$$);
+    main$$.appendChild(miDiv3$$);
+    miDiv3$$.appendChild(miFigure2$$);
   }
 };
-const agarraInput = (pokemonesMapeados)=>{
-  const input$$ = document.querySelector('input')
-  
-  input$$.addEventListener('input',()=> searchPokemon(input$$.value,pokemonesMapeados))
-};
-const agarraInputTipo = (pokemonesMapeadosTipo)=>{
-  const input$$ = document.querySelector('.miInput')
-  
-  input$$.addEventListener('input',()=> searchPokemonTipo(input$$.value,pokemonesMapeadosTipo))
-};
-const searchPokemon = (filtro,pokemons) => {
-  let pokemonfiltrado = pokemons.filter((pokemon)=>pokemon.Nombre.toLowerCase().includes(filtro.toLowerCase()))
-  pintaPokemon(pokemonfiltrado)
-};
-const searchPokemonTipo = (filtro,pokemons) => {
-  
+const agarraInput = (pokemonesMapeados) => {
+  const input$$ = document.querySelector("input");
 
-  let pokemonfiltrado = pokemons.filter((pokemon)=>pokemon.Tipos.toLowerCase().includes(filtro.toLowerCase()))
+  input$$.addEventListener("input", () =>
+    searchPokemon(input$$.value, pokemonesMapeados)
+  );
+};
+const agarraInputTipo = (pokemonesMapeadosTipo) => {
+  const input$$ = document.querySelector(".miInput");
+
+  input$$.addEventListener("input", () =>
+    searchPokemonTipo(input$$.value, pokemonesMapeadosTipo)
+  );
+};
+const searchPokemon = (filtro, pokemons) => {
+  let pokemonfiltrado = pokemons.filter((pokemon) =>
+    pokemon.Nombre.toLowerCase().includes(filtro.toLowerCase())
+  );
+  pintaPokemon(pokemonfiltrado);
+};
+const searchPokemonTipo = (filtro, pokemons) => {
+  let pokemonfiltrado = pokemons.filter((pokemon) =>
+    pokemon.Tipos.toLowerCase().includes(filtro.toLowerCase())
+  );
+
+  pintaPokemon(pokemonfiltrado);
+};
+const numeroRandom = () => {
+  return Math.floor(Math.random() * 150);
+};
+// const pintaPoke = (pokemonRecogido) => {
+//   // console.log(pokemonRecogido)
+//   const miDiv$$ = document.createElement("div");
+//   miDiv$$.className = "main__div flip-card";
+//   miDiv$$.id = "card";
+//   main$$.appendChild(miDiv$$);
+
+//   const miDiv2$$ = document.createElement("div");
+//   miDiv2$$.className = "main__div flip-card-inner";
+//   miDiv$$.appendChild(miDiv2$$);
+
+//   let mih2$$ = document.createElement("h2");
+//   mih2$$.textContent = `${pokemonRecogido.Nombre}`;
+//   miDiv$$.appendChild(mih2$$);
+
+//   let miFigure$$ = document.createElement("figure");
+//   let miImg$$ = document.createElement("img");
+//   miFigure$$.className = "flip-card-front";
+//   miImg$$.setAttribute("src", pokemonRecogido.fotos);
+
+//   let mip$$ = document.createElement("p");
+//   mip$$.textContent = `Tipo: ${pokemonRecogido.Tipos}`;
+//   // const habilidades3 = {...characterMapeado.Habilidad.ability,...characterMapeado.Habilidad.ability}
+//   // console.log(habilidades2)
+//   /////////////////////////////////////////////////////////
+//   let mip2$$ = document.createElement("p");
+//   // if (pokemonRecogido.Habilidad2[1]) {
+//   //   mip2$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad.ability.name}, ${pokemonRecogido.Habilidad2.ability.name} `;
+//   // } else {
+//   //   mip2$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad.ability.name}`;
+//   // }
+//   const miDiv3$$ = document.createElement("div");
+//   miDiv3$$.className = "main__div flip-card-back";
+
+//   let mih22$$ = document.createElement("h2");
+//   mih22$$.textContent = `${pokemonRecogido.Nombre}`;
+//   miDiv3$$.appendChild(mih2$$);
+
+//   let miFigure2$$ = document.createElement("figure");
+//   let miImg2$$ = document.createElement("img");
+//   miFigure$$.className = "flip-card-front";
+//   miImg2$$.setAttribute("src", pokemonRecogido.fotos);
+
+//   let mip4$$ = document.createElement("p");
+//   mip4$$.textContent = `Tipo: ${pokemonRecogido.Tipos}`;
+ 
+//   let laP$$ = document.createElement("p");
+//   // if (pokemonRecogido.Habilidad2[1]) {
+//   //   laP$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad[0].ability.name}, ${pokemonRecogido.Habilidad2[1].ability.name} `;
+//   // } else {
+//   //   laP$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad[0].ability.name}`;
+//   // }
+
+//   miFigure$$.appendChild(miImg$$);
+//   miDiv2$$.appendChild(miFigure$$);
+//   miFigure$$.appendChild(mip$$);
+//   miFigure$$.appendChild(mip2$$);
+//   main$$.appendChild(miDiv3$$);
+//   miDiv3$$.appendChild(miFigure2$$);
+ 
+// };
+const pintaPoke = (pokemonRecogido) => {
+  main$$.innerHTML = "";
+  const miDiv$$ = document.createElement("div");
+  miDiv$$.className = "main__div flip-card";
+
+  const miDiv2$$ = document.createElement("div");
+  miDiv2$$.className = "main__div flip-card-inner";
+  miDiv$$.appendChild(miDiv2$$);
+
+  let mih2$$ = document.createElement("h2");
+  mih2$$.textContent = `${pokemonRecogido.name}`;
+  miDiv$$.appendChild(mih2$$);
+
+  let miFigure$$ = document.createElement("figure");
+  let miImg$$ = document.createElement("img");
+  miFigure$$.className = "flip-card-front";
+  miImg$$.setAttribute("src", pokemonRecogido.sprites.versions["generation-v"]["black-white"].animated.front_default);
+  miFigure$$.appendChild(miImg$$);
+  miDiv2$$.appendChild(miFigure$$);
+
+  let mip$$ = document.createElement("p");
+  mip$$.textContent = `Tipo: ${pokemonRecogido.types[0].type.name}`;
+  miFigure$$.appendChild(mip$$);
+
+  let mip2$$ = document.createElement("p");
+  mip2$$.textContent = `Habilidad: ${pokemonRecogido.abilities[0].ability.name}`;
+  if (pokemonRecogido.abilities[1]) {
+    mip2$$.textContent += `, ${pokemonRecogido.abilities[1].ability.name}`;
+  }
+  miFigure$$.appendChild(mip2$$);
+
+  const miDiv3$$ = document.createElement("div");
+  miDiv3$$.className = "main__div flip-card-back";
+  miDiv$$.appendChild(miDiv3$$);
+
   
-  pintaPokemon(pokemonfiltrado)
+  main$$.appendChild(miDiv$$);
+
+};
+const agarraButton = () => {
+  const btn$$ = document.querySelector(".miButton");
+  
+  btn$$.addEventListener("click", async () => {
+   
+    const pokemonRecogido = await getOnePokemon(numeroRandom());
+    
+    //  console.log(pokemonRecogido)
+    // const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+   
+     pintaPoke(pokemonRecogido);
+  });
+};
+const agarraButton2 = () => {
+  const btn$$ = document.querySelector(".miButton2");
+  btn$$.addEventListener("click", async () => {
+    const pokemonRecogido = await getPokemons();
+    //  console.log(pokemonRecogido)
+    const pokemonesMapeados = mappeaPokemon(pokemonRecogido);
+    pintaPokemon(pokemonesMapeados);
+  });
 };
 const init = async () => {
   const characters = await getPokemons();
-  // console.log(characters)
-  const pokemonesMapeados = mappeaPokemon(characters)
-// console.log(pokemonesMapeados[0].Tipos);
-  
-pintaPokemon(pokemonesMapeados);
-agarraInput(pokemonesMapeados)
-agarraInputTipo(pokemonesMapeados)
+  const pokemonesMapeados = mappeaPokemon(characters);
+
+  pintaPokemon(pokemonesMapeados);
+  agarraInput(pokemonesMapeados);
+  agarraInputTipo(pokemonesMapeados);
+  agarraButton();
+  agarraButton2();
 };
 init();
