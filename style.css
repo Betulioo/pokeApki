@@ -71,7 +71,6 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   width: 88%;
-  border: 2px solid black;
   justify-content: center;
   align-items: center;
   height: 394px;
@@ -122,6 +121,7 @@ input:focus {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.1);
+  border: 3px solid black;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -130,13 +130,12 @@ input:focus {
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 55%;
+  height: 80%;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000000;
   box-sizing: border-box;
 }
 
@@ -146,8 +145,10 @@ input:focus {
 }
 
 .flip-card-back {
+  width: 100%;
+  height: 100%;
   background-color: #ffffff;
-  color: white;
+  color: black;
   transform: rotateY(180deg);
 }
 

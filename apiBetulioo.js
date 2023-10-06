@@ -10,10 +10,10 @@ const main$$ = document.querySelector("main");
 
 // return results
 // }
-const getPokemons = async () => {
+const getPokemons = async (index=1,numerogeneracion=150) => {
   let pokemap = [];
 
-  for (let i = 1; i < 151; i++) {
+  for (let i = index; i < numerogeneracion; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     const results = await response.json();
     // const mapeado = mappeaPokemon(results)
@@ -71,17 +71,17 @@ const pintaPokemon = (caracteresWiMap) => {
     miFigure$$.className = "flip-card-front";
     miImg$$.setAttribute("src", characterMapeado.fotos);
 
-    let mip$$ = document.createElement("p");
-    mip$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
+    // let mip$$ = document.createElement("p");
+    // mip$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
     // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
     // console.log(habilidades2)
     /////////////////////////////////////////////////////////
-    let mip2$$ = document.createElement("p");
-    if (characterMapeado.Habilidad2) {
-      mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
-    } else {
-      mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
-    }
+    // let mip2$$ = document.createElement("p");
+    // if (characterMapeado.Habilidad2) {
+    //   mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
+    // } else {
+    //   mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
+    // }
     const miDiv3$$ = document.createElement("div");
     miDiv3$$.className = "main__div flip-card-back";
 
@@ -89,13 +89,14 @@ const pintaPokemon = (caracteresWiMap) => {
     mih22$$.textContent = `${characterMapeado.Nombre}`;
     miDiv3$$.appendChild(mih2$$);
 
-    let miFigure2$$ = document.createElement("figure");
-    let miImg2$$ = document.createElement("img");
-    miFigure2$$.className = "";
-    miImg2$$.setAttribute("src", characterMapeado.fotos);
+    // let miFigure2$$ = document.createElement("figure");
+    // let miImg2$$ = document.createElement("img");
+    // miFigure2$$.className = "";
+    // miImg2$$.setAttribute("src", characterMapeado.fotos);
 
     let mip4$$ = document.createElement("p");
     mip4$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
+    miDiv3$$.appendChild(mip4$$);
     // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
     // console.log(habilidades2)
     let laP$$ = document.createElement("p");
@@ -104,13 +105,11 @@ const pintaPokemon = (caracteresWiMap) => {
     } else {
       laP$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
     }
-
+    miDiv3$$.appendChild(laP$$);
     miFigure$$.appendChild(miImg$$);
     miDiv2$$.appendChild(miFigure$$);
-    miFigure$$.appendChild(mip$$);
-    miFigure$$.appendChild(mip2$$);
-    main$$.appendChild(miDiv3$$);
-    miDiv3$$.appendChild(miFigure2$$);
+    miDiv2$$.appendChild(miDiv3$$);
+ 
   }
 };
 const agarraInput = (pokemonesMapeados) => {
@@ -213,9 +212,7 @@ const pintaPoke = (pokemonRecogido) => {
   miDiv2$$.className = "main__div flip-card-inner";
   miDiv$$.appendChild(miDiv2$$);
 
-  let mih2$$ = document.createElement("h2");
-  mih2$$.textContent = `${pokemonRecogido.name}`;
-  miDiv$$.appendChild(mih2$$);
+
 
   let miFigure$$ = document.createElement("figure");
   let miImg$$ = document.createElement("img");
@@ -224,20 +221,24 @@ const pintaPoke = (pokemonRecogido) => {
   miFigure$$.appendChild(miImg$$);
   miDiv2$$.appendChild(miFigure$$);
 
+
+
+  const miDiv3$$ = document.createElement("div");
+  miDiv3$$.className = "main__div flip-card-back";
+    let mih2$$ = document.createElement("h2");
+  mih2$$.textContent = `${pokemonRecogido.name}`;
+  miDiv3$$.appendChild(mih2$$);
   let mip$$ = document.createElement("p");
   mip$$.textContent = `Tipo: ${pokemonRecogido.types[0].type.name}`;
-  miFigure$$.appendChild(mip$$);
+  miDiv3$$.appendChild(mip$$);
 
   let mip2$$ = document.createElement("p");
   mip2$$.textContent = `Habilidad: ${pokemonRecogido.abilities[0].ability.name}`;
   if (pokemonRecogido.abilities[1]) {
     mip2$$.textContent += `, ${pokemonRecogido.abilities[1].ability.name}`;
   }
-  miFigure$$.appendChild(mip2$$);
-
-  const miDiv3$$ = document.createElement("div");
-  miDiv3$$.className = "main__div flip-card-back";
-  miDiv$$.appendChild(miDiv3$$);
+  miDiv3$$.appendChild(mip2$$);
+  miDiv2$$.appendChild(miDiv3$$);
 
   
   main$$.appendChild(miDiv$$);
@@ -265,6 +266,18 @@ const agarraButton2 = () => {
     pintaPokemon(pokemonesMapeados);
   });
 };
+const agarraButton3 = () => {
+  const btn$$ = document.querySelector(".miButton3");
+  console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    console.log("Button clicked")
+    const pokemonRecogido = await getPokemons(151,340);
+     console.log(pokemonRecogido)
+    const pokemonesMapeados = mappeaPokemon(pokemonRecogido);
+    pintaPokemon(pokemonesMapeados);
+    console.log(pokemonesMapeados)
+  });
+};
 const init = async () => {
   const characters = await getPokemons();
   const pokemonesMapeados = mappeaPokemon(characters);
@@ -274,5 +287,6 @@ const init = async () => {
   agarraInputTipo(pokemonesMapeados);
   agarraButton();
   agarraButton2();
+  agarraButton3();
 };
 init();
