@@ -54,7 +54,7 @@ const pintaPokemon = (caracteresWiMap) => {
   for (const characterMapeado of caracteresWiMap) {
     // console.log(characterMapeado.Nombre)
     const miDiv$$ = document.createElement("div");
-    miDiv$$.className = "main__div flip-card";
+    miDiv$$.className = `main__div flip-card ${characterMapeado.Tipos}`;
     miDiv$$.id = "card";
     main$$.appendChild(miDiv$$);
 
@@ -139,6 +139,13 @@ const searchPokemonTipo = (filtro, pokemons) => {
 
   pintaPokemon(pokemonfiltrado);
 };
+const searchPokemonTipo2 = (filtro, pokemons) => {
+  let pokemonfiltrado = pokemons.filter((pokemon) =>
+    pokemon.Tipos.toLowerCase().includes(filtro.toLowerCase())
+  );
+return pokemonfiltrado
+  // pintaPokemon(pokemonfiltrado);
+};
 const numeroRandom = () => {
   return Math.floor(Math.random() * 150);
 };
@@ -206,7 +213,7 @@ const numeroRandom = () => {
 const pintaPoke = (pokemonRecogido) => {
   main$$.innerHTML = "";
   const miDiv$$ = document.createElement("div");
-  miDiv$$.className = "main__div flip-card";
+  miDiv$$.className = `main__div flip-card ${pokemonRecogido.types[0].type.name}`;
 
   const miDiv2$$ = document.createElement("div");
   miDiv2$$.className = "main__div flip-card-inner";
@@ -268,25 +275,281 @@ const agarraButton2 = () => {
 };
 const agarraButton3 = () => {
   const btn$$ = document.querySelector(".miButton3");
-  console.log('boton agarrado')
+  // console.log('boton agarrado')
   btn$$.addEventListener("click", async () => {
-    console.log("Button clicked")
+    // console.log("Button clicked")
     const pokemonRecogido = await getPokemons(151,340);
-     console.log(pokemonRecogido)
+    //  console.log(pokemonRecogido)
     const pokemonesMapeados = mappeaPokemon(pokemonRecogido);
     pintaPokemon(pokemonesMapeados);
-    console.log(pokemonesMapeados)
+    // console.log(pokemonesMapeados)
   });
 };
+const agarraButtonGrass = () => {
+  const btn$$ = document.querySelector(".miButton-Grass");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("grass",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+// const agarraButtonFlying = () => {
+//   const btn$$ = document.querySelector(".miButton-flying");
+//   // console.log('boton agarrado')
+//   btn$$.addEventListener("click", async () => {
+//     // console.log("Button clicked")
+   
+//     const pokemonRecogido = await getPokemons();
+//     // console.log(pokemonRecogido)
+    
+//     //  console.log(pokemonRecogido)
+//     const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+//       const pokeFiltrado = searchPokemonTipo2("flying",pokemonrecogidomapeado)
+//     // console.log(pokeFiltrado)
+
+//       pintaPokemon(pokeFiltrado)
+// })};
+const agarraButtonFire = () => {
+  const btn$$ = document.querySelector(".miButton-fire");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("fire",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonWater = () => {
+  const btn$$ = document.querySelector(".miButton-water");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("water",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonGround = () => {
+  const btn$$ = document.querySelector(".miButton-ground");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("ground",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonIce = () => {
+  const btn$$ = document.querySelector(".miButton-ice");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("ice",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonBug = () => {
+  const btn$$ = document.querySelector(".miButton-bug");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("bug",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonElectric = () => {
+  const btn$$ = document.querySelector(".miButton-electric");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("electric",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonRock = () => {
+  const btn$$ = document.querySelector(".miButton-rock");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("rock",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonFight = () => {
+  const btn$$ = document.querySelector(".miButton-fight");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("fight",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonNormal = () => {
+  const btn$$ = document.querySelector(".miButton-normal");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("normal",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonPsychic = () => {
+  const btn$$ = document.querySelector(".miButton-psychic");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("psychic",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonPoison = () => {
+  const btn$$ = document.querySelector(".miButton-poison");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("poison",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonDragon = () => {
+  const btn$$ = document.querySelector(".miButton-dragon");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("dragon",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
+const agarraButtonGhost = () => {
+  const btn$$ = document.querySelector(".miButton-ghost");
+  // console.log('boton agarrado')
+  btn$$.addEventListener("click", async () => {
+    // console.log("Button clicked")
+   
+    const pokemonRecogido = await getPokemons();
+    // console.log(pokemonRecogido)
+    
+    //  console.log(pokemonRecogido)
+    const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
+      const pokeFiltrado = searchPokemonTipo2("ghost",pokemonrecogidomapeado)
+    // console.log(pokeFiltrado)
+
+      pintaPokemon(pokeFiltrado)
+})};
 const init = async () => {
   const characters = await getPokemons();
   const pokemonesMapeados = mappeaPokemon(characters);
 
   pintaPokemon(pokemonesMapeados);
   agarraInput(pokemonesMapeados);
-  agarraInputTipo(pokemonesMapeados);
+  // agarraInputTipo(pokemonesMapeados);
   agarraButton();
   agarraButton2();
   agarraButton3();
+  agarraButtonGrass()
+  // agarraButtonFlying()
+  agarraButtonWater()
+  agarraButtonGround()
+  agarraButtonIce()
+  agarraButtonBug()
+  agarraButtonElectric()
+  agarraButtonRock()
+  agarraButtonFight()
+  agarraButtonNormal()
+  agarraButtonPsychic()
+  agarraButtonPoison()
+  agarraButtonDragon()
+  agarraButtonGhost()
+  agarraButtonFire()
+
 };
 init();
