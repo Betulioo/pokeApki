@@ -140,6 +140,7 @@ input:focus {
   border: none;
   width: 28%;
   justify-content: center;
+  border: 1px solid black;
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
   -moz-user-select: none;
        user-select: none;
@@ -157,7 +158,7 @@ input:focus {
 }
 
 .miButton-fire {
-  background-color: red;
+  background-color: rgb(255, 62, 62);
 }
 
 .miButton-water {
@@ -227,7 +228,7 @@ miButton-fight {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 1.3s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.1);
   border: 3px solid black;
@@ -259,6 +260,7 @@ miButton-fight {
   background-color: #ffffff;
   color: black;
   transform: rotateY(180deg);
+  border: 3px solid black;
 }
 
 .mainClass {
@@ -286,4 +288,63 @@ h2 {
 p {
   font-size: 13px;
   font-family: "pokemon", sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  .buttoni {
+    width: 12%;
+  }
+  .header__figure {
+    display: flex;
+    width: 100%;
+    height: 67%;
+    border-bottom: 8px solid black;
+    justify-content: center;
+  }
+  img {
+    width: 61%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .flip-card-front {
+    width: 100%;
+    height: 40%;
+  }
+  .main__div {
+    width: 476px;
+    height: 369px;
+  }
+  img {
+    width: 18%;
+  }
+  .mainClass {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .flip-card {
+    width: 526px;
+    height: 502px;
+    margin: -17px 0px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .flip-card-front {
+    width: 100%;
+    height: 40%;
+  }
+  .main__div {
+    width: 534px;
+    height: 427px;
+  }
+  img {
+    width: 18%;
+  }
+  .mainClass {
+    flex-direction: row;
+  }
+  .flip-card {
+    width: 709px;
+    height: 547px;
+    margin: -17px 0px;
+  }
 }/*# sourceMappingURL=style.css.map */
