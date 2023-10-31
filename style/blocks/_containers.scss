@@ -1,5 +1,5 @@
 body{
-    background-color: red;
+    background-color: rgb(209, 0, 0);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -9,8 +9,9 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 88%;
-    
+    width: 286px;
+    height: 369px;
+    border-radius: 20px;
     justify-content: center;
     align-items: center;
     height: 394px;
@@ -56,8 +57,8 @@ input:focus {
     border-radius: 6px;
     border: none;
   
-    // background: #6E6D70;
-    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+   
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.548), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
     color: rgb(0, 0, 0);
     user-select: none;
     -webkit-user-select: none;
@@ -68,19 +69,11 @@ input:focus {
     box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
     outline: 0;
   }
-// .buttoni{
-//     width: 14%;
-//     height: 50px;
-//     border-radius: 50%;
-//     font-family: 'pokemon', sans-serif;
-//     font-size: 8px;
-//     border: 1px solid rgb(0, 0, 0);
-// }
+
 .buttoni {
     margin-top: 10px;
     display: flex;
-    // flex-direction: column;
-    // align-items: center;
+
     padding: 6px 14px;
     font-family:'pokemon', sans-serif;
     border-radius: 6px;
@@ -90,7 +83,7 @@ input:focus {
     border: 1px solid black;
   
     // background: #6E6D70;
-    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 1.5px 1px rgb(0, 0, 0), inset 1px 1.5px 1.5px rgba(255, 255, 255, 0.5), 1px 1px 1px 1.5px rgba(0, 0, 0, 0.12);
     // color: #DFDEDF;
     user-select: none;
     -webkit-user-select: none;
@@ -101,63 +94,122 @@ input:focus {
     box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
     outline: 0;
   }
-.miButton-Grass{
-background-color: green;
+  .miButton-Grass {
+    background-color: #4CAF50; /* Verde */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interior */
+    cursor: pointer; /* Cambio de cursor al pasar el mouse */
 }
-.miButton-fire{
-background-color: rgb(255, 62, 62);
-}
-.miButton-water{
-background-color: blue
-}
-.miButton-ground{
-    background-color: brown
 
+.miButton-fire {
+    background-color: #FF5722; /* Naranja */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-ice{
-    background-color: deepskyblue
 
+.miButton-water {
+    background-color: #2196F3; /* Azul */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-bug{
-    background-color: grey
 
+.miButton-ground {
+    background-color: #8D6E63; /* Marrón */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-electric{
-    background-color: yellow
 
+.miButton-ice {
+    background-color: #B3E0FF; /* Celeste */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-rock{
-    background-color: gainsboro
 
+.miButton-bug {
+    background-color: #AAB220; /* Verde Oliva */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-miButton-fight{
-    background-color: orange
 
+.miButton-electric {
+    background-color: #FFC107; /* Amarillo */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-normal{
-    background-color: white
 
+.miButton-rock {
+    background-color: #B0B0B0; /* Gris */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-psychic{
-    background-color: purple
 
+.miButton-fight {
+    background-color: #FF9800; /* Naranja Claro */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-poison{
-    background-color: greenyellow
 
+.miButton-normal {
+    background-color: #E0E0E0; /* Gris Claro */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-dragon{
-    background-color: gold
 
+.miButton-psychic {
+    background-color: #9C27B0; /* Morado */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.miButton-ghost{
-    background-color: magenta
 
+.miButton-poison {
+    background-color: #76FF03; /* Verde Lima */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.miButton-dragon {
+    background-color: #FFD700; /* Oro */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.miButton-ghost {
+    background-color: #E91E63; /* Rosa */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 .div_boton{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
 
 }
 
@@ -205,8 +257,10 @@ miButton-fight{
 .flip-card-back {
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    // background-color: #ffffff;
+    background-image: url(https://pngimg.com/uploads/pokeball/pokeball_PNG29.png);
     color: black;
     transform: rotateY(180deg);
     border: 3px solid black;
+    background-position: center;
 }

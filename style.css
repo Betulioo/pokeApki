@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -60,7 +61,7 @@ table {
   src: url(./style/base/misfont/Pokemon\ Classic.ttf);
 }
 body {
-  background-color: red;
+  background-color: rgb(209, 0, 0);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -70,7 +71,9 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 88%;
+  width: 286px;
+  height: 369px;
+  border-radius: 20px;
   justify-content: center;
   align-items: center;
   height: 394px;
@@ -118,7 +121,7 @@ input:focus {
   font-family: "pokemon", sans-serif;
   border-radius: 6px;
   border: none;
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.548), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
   color: rgb(0, 0, 0);
   -moz-user-select: none;
        user-select: none;
@@ -141,7 +144,7 @@ input:focus {
   width: 28%;
   justify-content: center;
   border: 1px solid black;
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 1.5px 1px rgb(0, 0, 0), inset 1px 1.5px 1.5px rgba(255, 255, 255, 0.5), 1px 1px 1px 1.5px rgba(0, 0, 0, 0.12);
   -moz-user-select: none;
        user-select: none;
   -webkit-user-select: none;
@@ -154,59 +157,115 @@ input:focus {
 }
 
 .miButton-Grass {
-  background-color: green;
+  background-color: #4CAF50; /* Verde */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interior */
+  cursor: pointer; /* Cambio de cursor al pasar el mouse */
 }
 
 .miButton-fire {
-  background-color: rgb(255, 62, 62);
+  background-color: #FF5722; /* Naranja */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-water {
-  background-color: blue;
+  background-color: #2196F3; /* Azul */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-ground {
-  background-color: brown;
+  background-color: #8D6E63; /* Marrón */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-ice {
-  background-color: deepskyblue;
+  background-color: #B3E0FF; /* Celeste */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-bug {
-  background-color: grey;
+  background-color: #AAB220; /* Verde Oliva */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-electric {
-  background-color: yellow;
+  background-color: #FFC107; /* Amarillo */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-rock {
-  background-color: gainsboro;
+  background-color: #B0B0B0; /* Gris */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-miButton-fight {
-  background-color: orange;
+.miButton-fight {
+  background-color: #FF9800; /* Naranja Claro */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-normal {
-  background-color: white;
+  background-color: #E0E0E0; /* Gris Claro */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-psychic {
-  background-color: purple;
+  background-color: #9C27B0; /* Morado */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-poison {
-  background-color: greenyellow;
+  background-color: #76FF03; /* Verde Lima */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-dragon {
-  background-color: gold;
+  background-color: #FFD700; /* Oro */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .miButton-ghost {
-  background-color: magenta;
+  background-color: #E91E63; /* Rosa */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .div_boton {
@@ -257,10 +316,11 @@ miButton-fight {
 .flip-card-back {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-image: url(https://pngimg.com/uploads/pokeball/pokeball_PNG29.png);
   color: black;
   transform: rotateY(180deg);
   border: 3px solid black;
+  background-position: center;
 }
 
 .mainClass {
@@ -269,7 +329,7 @@ miButton-fight {
   width: 100%;
   height: 100%;
   justify-content: space-around;
-  gap: 20px;
+  gap: 41px;
   flex-direction: column;
   align-items: center;
 }
@@ -311,40 +371,46 @@ p {
     height: 40%;
   }
   .main__div {
-    width: 476px;
+    width: 326px;
     height: 369px;
   }
   img {
-    width: 18%;
+    width: 60%;
   }
   .mainClass {
     flex-direction: row;
     justify-content: center;
   }
   .flip-card {
-    width: 526px;
-    height: 502px;
+    width: 291px;
+    height: 372px;
     margin: -17px 0px;
+  }
+  .div_boton {
+    margin-bottom: 5%;
   }
 }
 @media screen and (min-width: 1600px) {
+  .div_boton {
+    margin-bottom: 5%;
+  }
   .flip-card-front {
     width: 100%;
     height: 40%;
   }
   .main__div {
-    width: 534px;
-    height: 427px;
+    width: 326px;
+    height: 369px;
   }
   img {
-    width: 18%;
+    width: 60%;
   }
   .mainClass {
     flex-direction: row;
   }
   .flip-card {
-    width: 709px;
-    height: 547px;
+    width: 291px;
+    height: 372px;
     margin: -17px 0px;
   }
 }/*# sourceMappingURL=style.css.map */

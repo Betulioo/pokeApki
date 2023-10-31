@@ -70,17 +70,7 @@ const pintaPokemon = (caracteresWiMap) => {
     miFigure$$.className = "flip-card-front";
     miImg$$.setAttribute("src", characterMapeado.fotos);
 
-    // let mip$$ = document.createElement("p");
-    // mip$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
-    // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
-    // console.log(habilidades2)
-    /////////////////////////////////////////////////////////
-    // let mip2$$ = document.createElement("p");
-    // if (characterMapeado.Habilidad2) {
-    //   mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
-    // } else {
-    //   mip2$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}`;
-    // }
+
     const miDiv3$$ = document.createElement("div");
     miDiv3$$.className = "main__div flip-card-back";
 
@@ -88,16 +78,11 @@ const pintaPokemon = (caracteresWiMap) => {
     mih22$$.textContent = `${characterMapeado.Nombre}`;
     miDiv3$$.appendChild(mih2$$);
 
-    // let miFigure2$$ = document.createElement("figure");
-    // let miImg2$$ = document.createElement("img");
-    // miFigure2$$.className = "";
-    // miImg2$$.setAttribute("src", characterMapeado.fotos);
 
     let mip4$$ = document.createElement("p");
     mip4$$.textContent = `Tipo: ${characterMapeado.Tipos}`;
     miDiv3$$.appendChild(mip4$$);
-    // const habilidades2 = {...characterMapeado.Habilidad[0].ability,...characterMapeado.Habilidad[1].ability}
-    // console.log(habilidades2)
+
     let laP$$ = document.createElement("p");
     if (characterMapeado.Habilidad2) {
       laP$$.textContent = `Habilidad: ${characterMapeado.Habilidad.ability.name}, ${characterMapeado.Habilidad2.ability.name} `;
@@ -144,74 +129,13 @@ const searchPokemonTipo2 = (filtro, pokemons) => {
     pokemon.Tipos.toLowerCase().includes(filtro.toLowerCase())
   );
   return pokemonfiltrado;
-  // pintaPokemon(pokemonfiltrado);
+
 };
 
 const numeroRandom = () => {
   return Math.floor(Math.random() * 150);
 };
 
-// const pintaPoke = (pokemonRecogido) => {
-//   // console.log(pokemonRecogido)
-//   const miDiv$$ = document.createElement("div");
-//   miDiv$$.className = "main__div flip-card";
-//   miDiv$$.id = "card";
-//   main$$.appendChild(miDiv$$);
-
-//   const miDiv2$$ = document.createElement("div");
-//   miDiv2$$.className = "main__div flip-card-inner";
-//   miDiv$$.appendChild(miDiv2$$);
-
-//   let mih2$$ = document.createElement("h2");
-//   mih2$$.textContent = `${pokemonRecogido.Nombre}`;
-//   miDiv$$.appendChild(mih2$$);
-
-//   let miFigure$$ = document.createElement("figure");
-//   let miImg$$ = document.createElement("img");
-//   miFigure$$.className = "flip-card-front";
-//   miImg$$.setAttribute("src", pokemonRecogido.fotos);
-
-//   let mip$$ = document.createElement("p");
-//   mip$$.textContent = `Tipo: ${pokemonRecogido.Tipos}`;
-//   // const habilidades3 = {...characterMapeado.Habilidad.ability,...characterMapeado.Habilidad.ability}
-//   // console.log(habilidades2)
-//   /////////////////////////////////////////////////////////
-//   let mip2$$ = document.createElement("p");
-//   // if (pokemonRecogido.Habilidad2[1]) {
-//   //   mip2$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad.ability.name}, ${pokemonRecogido.Habilidad2.ability.name} `;
-//   // } else {
-//   //   mip2$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad.ability.name}`;
-//   // }
-//   const miDiv3$$ = document.createElement("div");
-//   miDiv3$$.className = "main__div flip-card-back";
-
-//   let mih22$$ = document.createElement("h2");
-//   mih22$$.textContent = `${pokemonRecogido.Nombre}`;
-//   miDiv3$$.appendChild(mih2$$);
-
-//   let miFigure2$$ = document.createElement("figure");
-//   let miImg2$$ = document.createElement("img");
-//   miFigure$$.className = "flip-card-front";
-//   miImg2$$.setAttribute("src", pokemonRecogido.fotos);
-
-//   let mip4$$ = document.createElement("p");
-//   mip4$$.textContent = `Tipo: ${pokemonRecogido.Tipos}`;
-
-//   let laP$$ = document.createElement("p");
-//   // if (pokemonRecogido.Habilidad2[1]) {
-//   //   laP$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad[0].ability.name}, ${pokemonRecogido.Habilidad2[1].ability.name} `;
-//   // } else {
-//   //   laP$$.textContent = `Habilidad: ${pokemonRecogido.Habilidad[0].ability.name}`;
-//   // }
-
-//   miFigure$$.appendChild(miImg$$);
-//   miDiv2$$.appendChild(miFigure$$);
-//   miFigure$$.appendChild(mip$$);
-//   miFigure$$.appendChild(mip2$$);
-//   main$$.appendChild(miDiv3$$);
-//   miDiv3$$.appendChild(miFigure2$$);
-
-// };
 const pintaPoke = (pokemonRecogido) => {
   main$$.innerHTML = "";
   const miDiv$$ = document.createElement("div");
@@ -258,8 +182,6 @@ const agarraButton = () => {
   btn$$.addEventListener("click", async () => {
     const pokemonRecogido = await getOnePokemon(numeroRandom());
 
-    //  console.log(pokemonRecogido)
-    // const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
 
     pintaPoke(pokemonRecogido);
   });
@@ -295,22 +217,7 @@ const agarraButtonGrass = (pokemonesMapeados) => {
     pintaPokemon(pokeFiltrado);
   });
 };
-// const agarraButtonFlying = () => {
-//   const btn$$ = document.querySelector(".miButton-flying");
-//   // console.log('boton agarrado')
-//   btn$$.addEventListener("click", async () => {
-//     // console.log("Button clicked")
 
-//     const pokemonRecogido = await getPokemons();
-//     // console.log(pokemonRecogido)
-
-//     //  console.log(pokemonRecogido)
-//     const pokemonrecogidomapeado = mappeaPokemon(pokemonRecogido)
-//       const pokeFiltrado = searchPokemonTipo2("flying",pokemonrecogidomapeado)
-//     // console.log(pokeFiltrado)
-
-//       pintaPokemon(pokeFiltrado)
-// })};
 const agarraButtonFire = (pokemonesMapeados) => {
   const btn$$ = document.querySelector(".miButton-fire");
 

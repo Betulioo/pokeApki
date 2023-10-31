@@ -37,21 +37,25 @@
         height: 40%;
     }
     .main__div{
-        width: 476px;
+        width: 326px;
+
         height: 369px;
     }
     img{
-      width: 18%
+      width: 60%
     }
     .mainClass{
         flex-direction: row;
         justify-content: center;
     }
     .flip-card{
-        width: 526px;
-        height: 502px;
+        width: 291px;
+        height: 372px;
         margin: -17px 0px
 
+    }
+    .div_boton{
+        margin-bottom: 5%;
     }
 
 
@@ -60,24 +64,28 @@
 
 
 @include large{
+    .div_boton{
+        margin-bottom: 5%;
+    }
  
     .flip-card-front{
         width: 100%;
         height: 40%;
     }
     .main__div{
-        width: 534px;
-        height: 427px;
+        width: 326px;
+
+        height: 369px;
     }
     img{
-      width: 18%
+      width: 60%
     }
     .mainClass{
         flex-direction: row;
     }
     .flip-card{
-        width: 709px;
-        height: 547px;
+        width: 291px;
+        height: 372px;
         margin: -17px 0px
 
     }
