@@ -321,6 +321,8 @@ input:focus {
   transform: rotateY(180deg);
   border: 3px solid black;
   background-position: center;
+  background-size: 574px;
+  padding-top: 180px;
 }
 
 .mainClass {
@@ -401,6 +403,9 @@ p {
   .main__div {
     width: 326px;
     height: 369px;
+  }
+  header img {
+    width: 37%;
   }
   img {
     width: 60%;
