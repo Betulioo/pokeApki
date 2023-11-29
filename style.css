@@ -56,6 +56,8 @@ table {
 }
 
 /*---- border-box---*/
+@import 'animate.css';
+
 @font-face {
   font-family: "pokemon";
   src: url(./style/base/misfont/Pokemon\ Classic.ttf);
@@ -94,6 +96,15 @@ img {
   width: 100%;
   border-bottom: 8px solid black;
 }
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+
 
 input {
   background-color: transparent;

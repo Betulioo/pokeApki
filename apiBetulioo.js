@@ -1,33 +1,19 @@
 const main$$ = document.querySelector("main");
-// console.log(main$$);
-// fetch(`https://rickandmortyapi.com/api/character`)
-// .then((response)=>response.json())
-// .then((res)=>console.log(res))
-// const getAllPokemon= async()=>{
-//   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
-//   const {results} = await response.json()
-//   console.log(results)
 
-// return results
-// }
+
 const getPokemons = async (index = 1, numerogeneracion = 150) => {
   let pokemap = [];
 
   for (let i = index; i < numerogeneracion; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     const results = await response.json();
-    // const mapeado = mappeaPokemon(results)
-    pokemap.push(results);
-    // console.log(results)
+  
+      pokemap.push(results);
 
-    // return results;
   }
-  // const pokemonesMapeados = mappeaPokemon(pokemap);
-  // console.log(pokemonesMapeados)
+
   return pokemap;
 
-  //  console.log(response)
-  // console.log(results);
 };
 const getOnePokemon = async (i) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
@@ -35,6 +21,7 @@ const getOnePokemon = async (i) => {
 
   return results;
 };
+
 
 const mappeaPokemon = (pokemonNoMap) => {
   return pokemonNoMap.map((character) => ({
@@ -345,9 +332,13 @@ const agarraButtonGhost = (pokemonesMapeados) => {
 };
 
 const init = async () => {
+
+  // traen y mapean los primeros 150 pokemones
   const characters = await getPokemons();
   const pokemonesMapeados = mappeaPokemon(characters);
 
+//traen y mapean los primeros 10 pokemones
+const tenPokemons = await getPokemons()
   pintaPokemon(pokemonesMapeados);
   agarraInput(pokemonesMapeados);
   // agarraInputTipo(pokemonesMapeados);
