@@ -1,12 +1,14 @@
 const main$$ = document.querySelector("main");
 
+
 const getPokemons = async (index = 1, numerogeneracion = 150) => {
   let pokemap = [];
 
   for (let i = index; i < numerogeneracion; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     const results = await response.json();
-    pokemap.push(results);
+  
+      pokemap.push(results);
 
   }
 
@@ -19,6 +21,7 @@ const getOnePokemon = async (i) => {
 
   return results;
 };
+
 
 const mappeaPokemon = (pokemonNoMap) => {
   return pokemonNoMap.map((character) => ({
@@ -329,9 +332,13 @@ const agarraButtonGhost = (pokemonesMapeados) => {
 };
 
 const init = async () => {
+
+  // traen y mapean los primeros 150 pokemones
   const characters = await getPokemons();
   const pokemonesMapeados = mappeaPokemon(characters);
 
+//traen y mapean los primeros 10 pokemones
+const tenPokemons = await getPokemons()
   pintaPokemon(pokemonesMapeados);
   agarraInput(pokemonesMapeados);
   // agarraInputTipo(pokemonesMapeados);
